@@ -1,10 +1,10 @@
 class FetchObjArg {
-  constructor(method = "GET", bodyObj, contType) {
+  constructor(method = "GET", bodyObj) {
     this.method = method;
     this.body = JSON.stringify(bodyObj);
     this.headers = {
       "Content-type": "application/json",
-      Authorization:
+      "Authorization":
         "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGE3ZjRmMjEyYjUwYzAwMTQ5ZTUxZDMiLCJpYXQiOjE2ODg3Mjg4MTgsImV4cCI6MTY4OTkzODQxOH0.sXaOCO04bmMgTuxYAtVauwOS0W1ya48Cm6unuqTr_tw",
     };
   }

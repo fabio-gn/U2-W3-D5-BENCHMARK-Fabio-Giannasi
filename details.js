@@ -1,5 +1,5 @@
 let card = document.querySelector('.card')
-let deleteButton = document.getElementById('delete-button')
+
 
 const populateSingleCard = function(imgUrl, prodName, descr, brand, price){
 card.innerHTML= `
@@ -10,10 +10,11 @@ card.innerHTML= `
               <span>${brand}</span>
               <span>${price}</span>
               
-              <a href="#" class="btn btn-danger text-white mt-auto align-self-start">Cancella</a>
+              <button onclick="frofri()" class="btn btn-danger text-white mt-auto align-self-start">Cancella</button>
               <a href="#" class="btn btn-outline-primary text-dark mt-auto align-self-start">Modifica</a>
             </div>
 `
+
 }
 let addressBarContent = new URLSearchParams(location.search)
 let eventId = addressBarContent.get('id')
@@ -39,9 +40,18 @@ let idUrl = myURL += eventId;
 fetchFunction(idUrl, getMethodArg, (data)=>{populateSingleCard(data.imageUrl, data.name, data.description, data.brand, data.price)})
 
 deleteMethod = new FetchObjArg('DELETE')
+delete deleteMethod.body;
 
-deleteButton.addEventListener('click', () => {
-    fetchFunction(idUrl, deleteMethod, ()=>{
-        console.log(deleted)
+let deleteElement = function(){
+    fetchFunction(idUrl, deleteMethod, (data)=>{
+        console.log('broooo')
     })
-})
+}
+
+// let deleteButton = document.getElementById('delete-button')
+// deleteButton.addEventListener('click', () => {
+//     console.log('clicked')
+//     fetchFunction(idUrl, deleteMethod, (data)=>{
+//         console.log('deleted')
+//     })
+// })
